@@ -22,15 +22,12 @@ public class Z_Three_Numbers
         int s = R.nextInt();
         int count = 0;
 
-        for (int i = 0; i <= k-2; i++) {
-            for (int j = i + 1; j <= k-1; j++) {
-                for (int l = j + 1; l <= k; l++) {
-                    if (i + j + l == s) {
-                        count++;
-                    }
-                }
-            }
+       for(int i=0;i<=k;i++){
+           for (int j = 0; j <= k; j++) {
+            if(s-i-j>=0 && s-i-j<=k)
+                count++;
         }
+       }
 
         System.out.println(count);
 
