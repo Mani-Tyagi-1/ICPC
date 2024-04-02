@@ -1,70 +1,41 @@
 import java.io.*;
 import java.util.*;
 
-public class G_Construct_the_Sum {
+public class C_Finding_Minimums {
     static PrintWriter out = new PrintWriter((System.out));
 
     public static void main(String args[]) throws IOException {
-        // Reader sc = new Reader();
-        // int t = sc.nextInt();
-        // while (t-- > 0) {
+        // Reader sc=new Reader();
+        // int t=sc.nextInt();
+        // while(t-->0)
+        // {
         solve();
         // }
         // out.close();
     }
 
-    public static void solve() {
-        Reader S = new Reader();
+    public static void solve()
+    {
+        Reader R = new Reader();
 
-        int t = S.nextInt();
+        long num = R.nextLong();
+        long k = R.nextLong();
+        long max = Long.MAX_VALUE;
 
-        for (int x = 0; x < t; x++) {
-            long n = S.nextLong();
-            long s = S.nextLong();
-
-            if (n * (n + 1) / 2 <= s) {
-                System.out.println(-1);
-            }
-            else {
-                if (n == 1 && s == 1) {
-                    System.out.println(1);
-                } else {
-
-                    ArrayList<Long> arr = new ArrayList<>();
-
-                    for (long i = 1; i < n; i++) {
-                        if (i < s) {
-                            if (s - i >= i + 1) {
-                                arr.add(i);
-                                s = s - i;
-
-                            } else {
-                                arr.add(s);
-                                s = 0;
-                                break;
-                            }
-                        }
-                    }
-                    if (s != 0 && s < n) {
-                        arr.add(s);
-                        s = 0;
-                    }
-
-                    if (s != 0)
-                        System.out.println(-1);
-                    else {
-                        for (int i = arr.size() - 1; i >= 0; i--) {
-                            System.out.print(arr.get(i) + " ");
-                        }
-
-                    }
-
-                    System.out.println();
-                }
-            }
-
+        for (long i = 1; i <= num; i++) {
+            long n = R.nextLong();
+            max = Math.min(max, n);
             
+            if (i % k == 0 ) {
+                System.out.print(max + " ");
+                max = Long.MAX_VALUE;
+            }
+            else if (i==num) {
+                System.out.print(max + " ");
+                break;
+            }
         }
+        
 
     }
 
