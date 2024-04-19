@@ -1,51 +1,46 @@
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
-public class B_Reversing
+public class D_Counting_Elements
 {
     static PrintWriter out=new PrintWriter((System.out));
     public static void main(String args[])throws IOException
     {
-        //     Reader sc=new Reader();
-        //     int t=sc.nextInt();
-        //     while(t-->0)
-        //     {
-        solve();
-        //     }
-        // out.close();
-    }
-    
-    public static void reverse(long arr[], int start, int end) {
-        
-        while(start < end){
-            long temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-
-            start++;
-            end--;
-        }
-
+    //     Reader sc=new Reader();
+    //     int t=sc.nextInt();
+    //     while(t-->0)
+    //     {
+            solve();
+    //     }
+    // out.close();
     }
 
     public static void solve()
     {
         Reader R = new Reader();
-        int len=R.nextInt();
-        long arr[]=new long[len];
-        for (int i = 0; i < len; i++) {
-            arr[i] = R.nextLong();
-        }
+
+        int len = R.nextInt();
+
+        ArrayList<Integer> li = new ArrayList<>();
+
+        
 
         for (int i = 0; i < len; i++) {
-            
-            if (arr[i] == 0) {
-                reverse(arr, 0, i - 1);
+            int x = R.nextInt();
+            li.add(x);
+        }
+
+        int count = 0;
+
+        for (int element : li) {
+            if (li.contains(element + 1)) {
+                count++;
             }
         }
+
+        System.out.println(count);
+
         
-        for (int i = 0; i < len; i++) {
-            System.out.print(arr[i]+" ");
-        }
     }
     
     static class Reader 
