@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class D_Prime_Function
+public class E_Swap
 {
     static PrintWriter out=new PrintWriter((System.out));
     public static void main(String args[])throws IOException
@@ -14,38 +14,18 @@ public class D_Prime_Function
         // out.close();
     }
     
-
-    public static boolean checkPrime(long n) {
-
-        if (n <= 1)
-            return false;
-        if (n == 2 || n == 3)
-            return true;
-        if (n % 2 == 0 || n % 3 == 0)
-            return false;
-
-        for (long i = 5; i*i <= n; i+=6) {
-            if (n % i == 0 || n%(i+2)==0)
-                return false;
-        }
-        return true;
+    public static void swap(int n, int m) {
+        System.out.print(m+" "+n);
     }
 
     public static void solve()
     {
         Reader R = new Reader();
 
-        int t = R.nextInt();
+        int n = R.nextInt();
+        int m = R.nextInt();
 
-        while ((t--)>0) {
-            long n = R.nextInt();
-
-            if (checkPrime(n))
-                System.out.println("YES");
-            else
-                System.out.println("NO");
-            
-        }
+        swap(n, m);
     }
     
     static class Reader 
